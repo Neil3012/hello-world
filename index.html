@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>GeoAR.js demo</title>
-    <!-- Dynamically add places from Javascript -->
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script type='text/javascript' src='build/aframe-ar-nft.js'></script>
-    <script type='text/javascript' src='index.js'></script>
-
+<title>AR.js A-Frame</title>
+<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+<!-- Assumes AR.js build is in the 'AR.js' directory -->
+<script type='text/javascript' src='build/ar-threex-location-only.js'></script>
+<script type='text/javascript' src='build/aframe-ar.js'></script>
+<script src='index.js'></script>
+<script src='clicker.js'></script>
 </head>
-
-<link rel="stylesheet" href="../../../src/location-based/stylesheets/index.css">
-
-
-<body style='margin: 0; overflow: hidden;'>
-    <a-scene vr-mode-ui="enabled: false" embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-
-        <a-camera gps-camera rotation-reader>
-        </a-camera>
-    </a-scene>
+<body>
+<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true' cursor='rayOrigin: mouse' raycaster='near: 0; far:10000'>
+	<a-camera gps-new-camera='gpsMinDistance: 5; initialPositionAsOrigin: true' wasd-controls='acceleration: 1300'></a-camera>
+</a-scene>
+<div id='setloc' style='position:absolute; left: 10px; bottom: 2%; z-index:999; background-color: blue; color: white; padding: 10px'>
+Lat:<input id="lat" value="19.1722035" /> 
+Lon: <input id="lon" value="73.006028"/> 
+Min Acc: <input id='minacc' value='1000' /> <input type='button' id='go' value='go' />
+</div>
 </body>
+</html>

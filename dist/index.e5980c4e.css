@@ -1,0 +1,63 @@
+body {
+  color: #fff;
+  background-color: #0ff;
+  font-family: Lato, sans-serif;
+}
+
+.sidenav {
+  z-index: 1;
+  background-color: #111;
+  width: 0;
+  height: 100%;
+  padding-top: 60px;
+  transition: all .5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+.sidenav a {
+  color: #818181;
+  padding: 8px 8px 8px 32px;
+  font-size: 25px;
+  text-decoration: none;
+  transition: all .3s;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  margin-left: 50px;
+  font-size: 36px;
+  position: absolute;
+  top: 0;
+  right: 25px;
+}
+
+@media screen and (height <= 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+#place-button {
+  width: 100px;
+  height: 35px;
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: calc(50% - 50px);
+}
+
+#VRButton {
+  margin-bottom: 70px !important;
+}
+/*# sourceMappingURL=index.e5980c4e.css.map */

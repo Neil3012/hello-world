@@ -735,7 +735,7 @@ function init() {
     renderer.domElement.addEventListener("touchmove", onTouchMove, false);
     renderer.domElement.addEventListener("touchend", onTouchEnd, false);
 }
-var touchDown, touchX, touchY, deltaX, deltaY, initialDistance, initialScale;
+var touchDown = false, touchX, touchY, deltaX, deltaY, initialDistance, initialScale;
 function onTouchStart(event) {
     if (event.touches.length === 1) {
         touchDown = true;
@@ -754,7 +754,7 @@ function onTouchMove(event) {
         deltaY = event.touches[0].pageY - touchY;
         touchX = event.touches[0].pageX;
         touchY = event.touches[0].pageY;
-        rotateObject();
+        rotateObject(deltaX);
     } else if (event.touches.length === 2) {
         var newDistance = getDistance(event.touches[0], event.touches[1]);
         var scale = newDistance / initialDistance;

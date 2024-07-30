@@ -1,7 +1,6 @@
 149
 65C:\Users\Admin\Documents\GitHub\hello-world\jsm\webxr\VRButton.js133667238248209213 0
 60C:\Users\Admin\Documents\GitHub\hello-world\indexbackup.html133668100620846851 0
-59C:\Users\Admin\Documents\GitHub\hello-world\dist\index.html133668102132865907 0
 59C:\Users\Admin\Documents\GitHub\hello-world\jsm\loaders\lwo133667238242145844 1
 51C:\Users\Admin\Documents\GitHub\hello-world\.vscode133667365955312441 1
 46C:\Users\Admin\Documents\GitHub\hello-world\3d133667238213276280 1
@@ -13,10 +12,10 @@
 72C:\Users\Admin\Documents\GitHub\hello-world\jsm\loaders\LDrawLoader.d.ts133667238227504042 0
 56C:\Users\Admin\Documents\GitHub\hello-world\jsm\controls133667391823487570 1
 68C:\Users\Admin\Documents\GitHub\hello-world\jsm\loaders\3MFLoader.js133667238218984299 0
-48C:\Users\Admin\Documents\GitHub\hello-world\dist133668102132885913 1
+48C:\Users\Admin\Documents\GitHub\hello-world\dist133668126033580369 1
 71C:\Users\Admin\Documents\GitHub\hello-world\jsm\loaders\KTX2Loader.d.ts133667238226460396 0
 79C:\Users\Admin\Documents\GitHub\hello-world\jsm\loaders\BasisTextureLoader.d.ts133667238220250007 0
-54C:\Users\Admin\Documents\GitHub\hello-world\index.html133668102016423194 0
+54C:\Users\Admin\Documents\GitHub\hello-world\index.html133668126090374171 0
 85C:\Users\Admin\Documents\GitHub\hello-world\jsm\loaders\obj2\bridge\MtlObjBridge.d.ts133667238243207929 0
 47C:\Users\Admin\Documents\GitHub\hello-world\jsm133667238247204015 1
 52C:\Users\Admin\Documents\GitHub\hello-world\3d\2.glb133667238212926246 0
@@ -148,3 +147,4 @@
 65C:\Users\Admin\Documents\GitHub\hello-world\build\three.module.js133667238217173829 0
 52C:\Users\Admin\Documents\GitHub\hello-world\3d\1.glb133667238212581155 0
 52C:\Users\Admin\Documents\GitHub\hello-world\3d\4.glb133667238213566249 0
+59C:\Users\Admin\Documents\GitHub\hello-world\dist\index.html133668126033580369 0

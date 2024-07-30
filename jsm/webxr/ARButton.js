@@ -25,7 +25,7 @@ class ARButton {
 				currentSession.removeEventListener( 'end', onSessionEnded );
 
 				button.textContent = 'START AR';
-
+				console.log("Start");
 				currentSession = null;
 
 			}

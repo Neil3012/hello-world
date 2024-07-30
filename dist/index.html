@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>three.js ar - hit test</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<link type="text/css" rel="stylesheet" href="/index.e5980c4e.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	</head>
-	<body>
+<head>
+    <title>three.js ar - hit test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="/index.e5980c4e.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
 
-		<div id="content">
-			<div id="mySidenav" class="sidenav">
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-				<a class="ar-object" id="1" href="#">item_1</a>
-				<a class="ar-object" id="2" href="#">item_2</a>
-				<a class="ar-object" id="3" href="#">item_3</a>
-				<a class="ar-object" id="4" href="#">item_4</a>
-			</div>
-	
-			<div id="container" style="position: fixed"></div>
-			  
-			<span style="cursor: pointer; font-size: 30px; position: absolute" onclick="openNav()">&#9776; open</span>
-		
-			<button type="button" id="place-button">PLACE</button>
-		</div>
+    <div id="content">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="ar-object" id="1" href="#">item_1</a>
+            <a class="ar-object" id="2" href="#">item_2</a>
+            <a class="ar-object" id="3" href="#">item_3</a>
+            <a class="ar-object" id="4" href="#">item_4</a>
+        </div>
 
-		<script>function openNav() {
+        <div id="container" style="position: fixed"></div>
+
+        <span style="cursor: pointer; font-size: 30px; position: absolute" onclick="openNav()">&#9776; open</span>
+
+        <button type="button" id="place-button">PLACE</button>
+    </div>
+
+    <script>function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
 }
 function closeNav() {
@@ -34,7 +34,7 @@ function closeNav() {
 
 </script>
 
-		<script>// modules are defined as an array
+    <script>// modules are defined as an array
 // [ module function, map of requires ]
 //
 // map of requires is short require name -> numeric require
@@ -623,7 +623,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 var _threeModuleJs = require("./build/three.module.js");
 var _arbuttonJs = require("./jsm/webxr/ARButton.js");
 var _vrbuttonJs = require("./jsm/webxr/VRButton.js");
-//
 var _orbitControlsJs = require("./jsm/controls/OrbitControls.js");
 var _gltfloaderJs = require("./jsm/loaders/GLTFLoader.js");
 var _rgbeloaderJs = require("./jsm/loaders/RGBELoader.js");
@@ -638,17 +637,6 @@ animate();
 $(".ar-object").click(function() {
     if (current_object != null) scene.remove(current_object);
     loadModel($(this).attr("id"));
-});
-$("#ARButton").click(function() {
-    current_object.visible = false;
-    isAR = true;
-});
-$("#VRButton").click(function() {
-    scene.background = envmap;
-    scene.position.z = -2;
-});
-$("#place-button").click(function() {
-    arPlace();
 });
 function arPlace() {
     if (reticle.visible) {
@@ -687,7 +675,6 @@ function init() {
     scene.add(directionalLight);
     var ambientLight = new _threeModuleJs.AmbientLight(0x222222);
     scene.add(ambientLight);
-    //
     renderer = new _threeModuleJs.WebGLRenderer({
         antialias: true,
         alpha: true
@@ -705,9 +692,7 @@ function init() {
     controls.target.set(0, 0, -0.2);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    //VR SETUP
     document.body.appendChild((0, _vrbuttonJs.VRButton).createButton(renderer));
-    //AR SETUP
     let options = {
         requiredFeatures: [
             "hit-test"
@@ -720,17 +705,11 @@ function init() {
         root: document.getElementById("content")
     };
     document.body.appendChild((0, _arbuttonJs.ARButton).createButton(renderer, options));
-    //document.body.appendChild( ARButton.createButton( renderer, { requiredFeatures: [ 'hit-test' ] } ) );
-    //
     reticle = new _threeModuleJs.Mesh(new _threeModuleJs.RingBufferGeometry(0.15, 0.2, 32).rotateX(-Math.PI / 2), new _threeModuleJs.MeshBasicMaterial());
     reticle.matrixAutoUpdate = false;
     reticle.visible = false;
     scene.add(reticle);
-    //
     window.addEventListener("resize", onWindowResize, false);
-    function rotateObject1() {
-        if (current_object && reticle.visible) current_object.rotation.y += deltaX / 100;
-    }
     renderer.domElement.addEventListener("touchstart", onTouchStart, false);
     renderer.domElement.addEventListener("touchmove", onTouchMove, false);
     renderer.domElement.addEventListener("touchend", onTouchEnd, false);
@@ -769,12 +748,14 @@ function getDistance(touch1, touch2) {
     var dy = touch1.pageY - touch2.pageY;
     return Math.sqrt(dx * dx + dy * dy);
 }
+function rotateObject(deltaX) {
+    if (current_object && reticle.visible) current_object.rotation.y += deltaX / 100;
+}
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
-//
 function animate() {
     renderer.setAnimationLoop(render);
     requestAnimationFrame(animate);
@@ -784,7 +765,7 @@ function render(timestamp, frame) {
     if (frame && isAR) {
         var referenceSpace = renderer.xr.getReferenceSpace();
         var session = renderer.xr.getSession();
-        if (hitTestSourceRequested === false) {
+        if (!hitTestSourceRequested) {
             session.requestReferenceSpace("viewer").then(function(referenceSpace) {
                 session.requestHitTestSource({
                     space: referenceSpace
@@ -34013,5 +33994,5 @@ RGBELoader.prototype = Object.assign(Object.create((0, _threeModuleJs.DataTextur
 },{"../../build/three.module.js":"2SpE9","@parcel/transformer-js/src/esmodule-helpers.js":"gDSzC"}]},["9RlPY","bMeg8"], "bMeg8", "parcelRequire94c2")
 
 </script>
-	</body>
+</body>
 </html>
